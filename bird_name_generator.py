@@ -8,7 +8,7 @@ adjectives = ['Splendid', 'Great', 'Beautiful', 'Glossy', 'Bearded', 'Bi-colored
 colors = ['Black', 'Gray', 'White', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet', 'Purple', 'Dark', 'Light', 'Bright', 'Rainbow', 'Cyan', 'Cerulean', 'Seafoam', 'Fiery', 'Crimson', 'Blood', 'Brown', 'Dark Brown', 'Rose', 'Rust', 'Copper', 'Pink', '#FF00FF']
 patterns = [('Spot', 'Spotted'), ('Band', 'Banded'), ('Bar', 'Barred')]
 body_parts = ['Whiskered', 'Faced', 'Footed', 'Fronted', 'Girdled', 'Goggled', 'Hooded', 'Mantled', 'Masked', 'Naped', 'Necked', 'Sided', 'Tipped', 'Bellied', 'Backed', 'Rumped', 'Tailed', 'Winged', 'Breasted', 'Crested', 'Headed', 'Shouldered', 'Throated', 'Legged', 'Ringed', 'Thighed', 'Vented', 'Billed', 'Beaked', 'Browed', 'Eyed', 'Capped', 'Cheeked', 'Chested', 'Chinned', 'Collared', 'Cowled', 'Crowned', 'Eared']
-cardinalities = ['Eastern', 'Western', 'Northern', 'Southern']
+cardinalities = [('East', 'Eastern'), ('West', 'Western'), ('North', 'Northern'), ('South', 'Southern')]
 locations = ['American', 'Arctic', 'African']
 modifiers = ['Fruit', 'Gay']
 biomes = ['Swamp', 'Marsh', 'Tree', 'Field']
@@ -45,15 +45,20 @@ def generate_bird_name():
     # Cardinality
     cardinality = False
     if random.random() < 0.2:
-        bird_name += f' {random.sample(cardinalities, 1)[0]}'
         cardinality = True
 
     # Location
+    location = False
     if random.random() < 0.2:
+        location = True
         if cardinality:
+            bird_name += f' {random.sample(cardinalities, 1)[0][0]}'
             bird_name += f'-{random.sample(locations, 1)[0]}'
         else:
             bird_name += f' {random.sample(locations, 1)[0]}'
+
+    if cardinality and not location:
+        bird_name += f' {random.sample(cardinalities, 1)[0][1]}'
 
     # Noun / Biome / Color
     modifier = False
