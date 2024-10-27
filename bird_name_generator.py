@@ -5,7 +5,7 @@ import random
 
 discoverers = ['Amelia', 'Sammy', 'Sasha', 'Ambre', 'Caroline', 'Jenna', 'Theia', 'Matt', 'Ryan Cubis', 'Max', 'Em', 'Willow', 'Hart', 'Kim']
 adjectives = ['Splendid', 'Great', 'Beautiful', 'Glossy', 'Bearded', 'Bi-colored']
-colors = ['Black', 'Gray', 'White', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet', 'Purple', 'Dark', 'Light', 'Bright', 'Rainbow', 'Cyan', 'Cerulean', 'Seafoam', 'Fiery', 'Crimson', 'Blood', 'Brown', 'Dark Brown', 'Rose', 'Rust', 'Copper', 'Pink', '#FF00FF']
+colors = ['Black', 'Gray', 'White', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet', 'Purple', 'Dark', 'Light', 'Bright', 'Rainbow', 'Cyan', 'Cerulean', 'Seafoam', 'Fiery', 'Crimson', 'Blood', 'Brown', 'Dark Brown', 'Rose', 'Rusty', 'Copper', 'Pink', '#FF00FF']
 patterns = [('Spot', 'Spotted'), ('Band', 'Banded'), ('Bar', 'Barred')]
 body_parts = ['Whiskered', 'Faced', 'Footed', 'Fronted', 'Girdled', 'Goggled', 'Hooded', 'Mantled', 'Masked', 'Naped', 'Necked', 'Sided', 'Tipped', 'Bellied', 'Backed', 'Rumped', 'Tailed', 'Winged', 'Breasted', 'Crested', 'Headed', 'Shouldered', 'Throated', 'Legged', 'Ringed', 'Thighed', 'Vented', 'Billed', 'Beaked', 'Browed', 'Eyed', 'Capped', 'Cheeked', 'Chested', 'Chinned', 'Collared', 'Cowled', 'Crowned', 'Eared']
 cardinalities = [('East', 'Eastern'), ('West', 'Western'), ('North', 'Northern'), ('South', 'Southern')]
