@@ -6,7 +6,7 @@ import random
 discoverers = ['Amelia', 'Sammy', 'Sasha', 'Ambre', 'Caroline', 'Jenna', 'Theia', 'Matt', 'Ryan Cubis', 'Max', 'Em', 'Willow', 'Hart', 'Kim']
 adjectives = ['Splendid', 'Great', 'Beautiful', 'Glossy', 'Bearded', 'Bi-colored']
 colors = ['Black', 'Gray', 'White', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet', 'Purple', 'Dark', 'Light', 'Bright', 'Rainbow', 'Cyan', 'Cerulean', 'Seafoam', 'Fiery', 'Crimson', 'Blood', 'Brown', 'Dark Brown', 'Rose', 'Rusty', 'Copper', 'Pink', '#FF00FF']
-patterns = [('Spot', 'Spotted'), ('Band', 'Banded'), ('Bar', 'Barred')]
+patterns = [('Spot', 'Spotted'), ('Band', 'Banded'), ('Bar', 'Barred'), ('Stripe', 'Striped'), ('Bare', None)]
 body_parts = ['Whiskered', 'Faced', 'Footed', 'Fronted', 'Girdled', 'Goggled', 'Hooded', 'Mantled', 'Masked', 'Naped', 'Necked', 'Sided', 'Tipped', 'Bellied', 'Backed', 'Rumped', 'Tailed', 'Winged', 'Breasted', 'Crested', 'Headed', 'Shouldered', 'Throated', 'Legged', 'Ringed', 'Thighed', 'Vented', 'Billed', 'Beaked', 'Browed', 'Eyed', 'Capped', 'Cheeked', 'Chested', 'Chinned', 'Collared', 'Cowled', 'Crowned', 'Eared']
 cardinalities = [('East', 'Eastern'), ('West', 'Western'), ('North', 'Northern'), ('South', 'Southern')]
 locations = ['American', 'Arctic', 'African']
@@ -34,8 +34,12 @@ def generate_bird_name():
             body_part = f'{random.sample(body_parts, 1)[0]}'
 
         # Pattern
+        p = ''
         if random.random() < 0.2:
-            bird_name += f'-{random.sample(patterns, 1)[0][body_part == ""]}'
+            p = f'-{random.sample(patterns, 1)[0][body_part == ""]}'
+            p = '' if p is None else p
+            bird_name += p
+
 
         bird_name += '' if body_part == '' else '-'
         bird_name += body_part
