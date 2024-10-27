@@ -37,7 +37,7 @@ def generate_bird_name():
         pattern = ''
         if random.random() < 0.2:
             pattern = f'{random.sample(patterns, 1)[0][body_part == ""]}'
-            pattern = '' if pattern is None else f'-{pattern}'
+            pattern = '' if (pattern == 'None') else f'-{pattern}'
 
         if body_part is not None or pattern is not None:
             bird_name += color
