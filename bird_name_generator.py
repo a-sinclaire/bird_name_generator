@@ -4,15 +4,15 @@ import argparse
 import random
 
 discoverers = ['Amelia', 'Sammy', 'Sasha', 'Ambre', 'Caroline', 'Jenna', 'Theia', 'Matt', 'Ryan Cubis', 'Max', 'Em', 'Willow', 'Hart', 'Kim']
-adjectives = ['Splendid', 'Great', 'Beautiful', 'Glossy', 'Bearded', 'Bi-colored']
+adjectives = ['Splendid', 'Great', 'Beautiful', 'Glossy', 'Bearded', 'Bi-colored', 'Hairy', 'Ice', 'Electric-type']
 colors = ['Black', 'Gray', 'White', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet', 'Purple', 'Dark', 'Light', 'Bright', 'Rainbow', 'Cyan', 'Cerulean', 'Seafoam', 'Fiery', 'Crimson', 'Blood', 'Brown', 'Dark Brown', 'Rose', 'Rusty', 'Copper', 'Pink', '#FF00FF']
 patterns = [('Spot', 'Spotted'), ('Band', 'Banded'), ('Bar', 'Barred'), ('Stripe', 'Striped'), ('Bare', None)]
 body_parts = ['Whiskered', 'Faced', 'Footed', 'Fronted', 'Girdled', 'Goggled', 'Hooded', 'Mantled', 'Masked', 'Naped', 'Necked', 'Sided', 'Tipped', 'Bellied', 'Backed', 'Rumped', 'Tailed', 'Winged', 'Breasted', 'Crested', 'Headed', 'Shouldered', 'Throated', 'Legged', 'Ringed', 'Thighed', 'Vented', 'Billed', 'Beaked', 'Browed', 'Eyed', 'Capped', 'Cheeked', 'Chested', 'Chinned', 'Collared', 'Cowled', 'Crowned', 'Eared']
 cardinalities = [('East', 'Eastern'), ('West', 'Western'), ('North', 'Northern'), ('South', 'Southern')]
-locations = ['American', 'Arctic', 'African']
-modifiers = ['Fruit', 'Gay']
-biomes = ['Swamp', 'Marsh', 'Tree', 'Field']
-birds = ['Sparrow', 'Hummingbird', 'Hawk', 'Jay', 'Pigeon']
+locations = ['American', 'Arctic', 'African', 'European', 'Baltimore', 'Lowell', 'Dracut']
+modifiers = ['Fruit', 'Gay', 'Migratory']
+biomes = ['Swamp', 'Marsh', 'Tree', 'Field', 'Sea', 'Desert', 'Tundra', 'Ocean', 'Reef', 'Beach', 'Park', 'Backyard']
+birds = ['Sparrow', 'Hummingbird', 'Hawk', 'Jay', 'Pigeon', 'Warbler', 'Gull', 'Woodpecker', 'Tit', 'Penguin', 'Grosbeak', 'Cowbird', 'Bird', 'Screecher', 'Owl', 'Donkey-bird', 'Parrot', 'Chickadee', 'Nuthatch', 'Cardinal', 'Crow', 'Raven', 'Blackbird', 'Magpie', 'Junco', 'Phoebe', 'Bluebird', 'Swift', 'Flamingo', 'Sapsucker']
 
 def generate_bird_name():
     bird_name = ''
@@ -26,7 +26,7 @@ def generate_bird_name():
 
     # Color (Pattern) (Body-part)
     if random.random() < 0.2:
-        bird_name += f' {random.sample(colors, 1)[0]}'
+        color = f' {random.sample(colors, 1)[0]}'
 
         # Body Part
         body_part = ''
@@ -34,13 +34,15 @@ def generate_bird_name():
             body_part = f'{random.sample(body_parts, 1)[0]}'
 
         # Pattern
-        p = ''
+        pattern = ''
         if random.random() < 0.2:
-            p = f'-{random.sample(patterns, 1)[0][body_part == ""]}'
-            p = '' if p is None else p
-            bird_name += p
+            pattern = f'-{random.sample(patterns, 1)[0][body_part == ""]}'
+            pattern = '' if pattern is None else pattern
 
+        if body_part is not None or pattern is not None:
+            bird_name += color
 
+        bird_name += pattern
         bird_name += '' if body_part == '' else '-'
         bird_name += body_part
     elif random.random() < 0.2:
